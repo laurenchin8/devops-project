@@ -1,0 +1,74 @@
+
+// this is a comment
+
+// the punctuation symbols
+
+, . 
+
+ [] ( ) ;
+  { }
+
+
+// operators
+
+    + - * / 
+
+
+== > >= < <= !=  
+
+and or not
+
+  =
+
+// primitive data types
+
+int bool  double   string void
+
+  // the various
+  // reserved words
+  
+struct while for  array 
+
+ if else elseif
+
+  new  return 
+
+x xs ys foo bar foobarbaz f_bar foo_42_bar foo__
+
+x=y>z<=u().v
+
+ // strings, numbers, and other values
+
+""  "hello world!" true false null
+
+42 3.14159
+  0.0 10.0 3 3.14
+
+
+
+(3)+(4/2)
+
+ ( 3 ) + ( 4 / 2 )
+
+// assignment statements
+
+int x=3;
+
+int y = 4.2 ;
+
+// strange stuff
+
+  if_a if(a=b){} intv=b;a=f()+b;
+
+ 3.21.0 .32.2
+
+// some examples of illegal tokens, uncomment to check that an error results:
+// !
+// !!
+// "hello
+//  world"
+// _foo
+// 01234
+// 01.23
+// #
+
