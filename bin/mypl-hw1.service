@@ -6,7 +6,9 @@ Description=<This service runs a basic programming language (mypl) lexer on an e
 [Service]
 User=mypl
 Group=mypl
-ExecStart=/usr/local/bin/mypl.py --lex hw1_example.mypl
+ExecStart=/usr/bin/python3 /usr/local/bin/mypl.py --lex /usr/local/bin/hw1_example.mypl
+StandardOutput=journal
+StandardError=journal
 Type=simple
 Restart=always
 RestartSec=3

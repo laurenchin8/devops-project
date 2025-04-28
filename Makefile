@@ -17,3 +17,7 @@ lint:
 package:
 	@chmod +x debBuild.sh
 	./debBuild.sh
+
+view-output:
+	@chmod +x viewOutput.sh
+	./viewOutput.sh

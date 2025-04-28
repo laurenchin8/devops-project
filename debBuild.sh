@@ -25,12 +25,13 @@ cp bin/DEBIAN/postinst $TEMP_DIR/DEBIAN/
 cp bin/DEBIAN/prerm $TEMP_DIR/DEBIAN/
 cp bin/DEBIAN/postrm $TEMP_DIR/DEBIAN/
 
-echo "Copying python files into place"
-cp /mypl.py $TEMP_DIR/usr/local/bin/
-cp /mypl_token.py $TEMP_DIR/usr/local/bin/
-cp /mypl_lexer.py $TEMP_DIR/usr/local/bin/
-cp /mypl_iowrapper.py $TEMP_DIR/usr/local/bin/
-cp /mypl_error.py $TEMP_DIR/usr/local/bin/
+echo "Copying python files and mypl file into place"
+cp mypl.py $TEMP_DIR/usr/local/bin/
+cp mypl_token.py $TEMP_DIR/usr/local/bin/
+cp mypl_lexer.py $TEMP_DIR/usr/local/bin/
+cp mypl_iowrapper.py $TEMP_DIR/usr/local/bin/
+cp mypl_error.py $TEMP_DIR/usr/local/bin/
+cp hw1_example.mypl $TEMP_DIR/usr/local/bin/
 
 echo "Copying service file into place"
 cp bin/mypl-hw1.service $TEMP_DIR/etc/systemd/system/
