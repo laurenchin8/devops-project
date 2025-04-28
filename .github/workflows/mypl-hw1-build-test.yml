@@ -1,0 +1,69 @@
+
+name: mypl-hw1 GitHub Actions
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  # ****** BUILD ***************************************************************
+  # This workflow contains jobs to build this project
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - name: Install make 
+        run: sudo apt-get update -q && sudo apt-get install -y -q make
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: Build project
+        run: |
+          make build
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+  # ***** TEST **************************************************************
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    needs: build
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - name: Install pipx and pytest
+        run: |
+          echo "Installing pipx and pytest..."
+          sudo apt-get install -y -q pipx
+          pipx install pytest
+
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: Test project
+        run: |
+          make test
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+   # ***** LINT **************************************************************
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    needs: test
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: Lint python code
+        run: |
+          make lint
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+  # ***** BUILD DEB PACKAGE *************************************************
+  build-deb-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the debian package
+        run: make package
+      - name: Save debian package
+        uses: actions/upload-artifact@v4
+        with:
+          name: mypl-hw1-v2.0.0.deb
+          path: ./mypl-hw1-v2.0.0.deb
