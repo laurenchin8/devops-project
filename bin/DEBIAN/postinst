@@ -1,0 +1,9 @@
+# now that mypl-hw1 was installed, need to start
+echo "Running postinst for mypl-hw1..."
+
+adduser mypl
+sudo chown mypl:mypl /usr/local/bin/mypl.py
+sudo chmod +x /usr/local/bin/mypl.py
+systemctl daemon-reload
+systemctl enable mypl-hw1.service
+systemctl start mypl-hw1.service

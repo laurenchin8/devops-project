@@ -1,0 +1,4 @@
+# stop mypl-hw1
+echo "Running prerm for mypl-hw1..."
+
+systemctl stop mypl-hw1.service

@@ -1,0 +1,15 @@
+# This is the systemd service file that you'll need to configure and install in the /lib/systemd/system/ directory so that systemd will know you to launch/start/stop your mypl-hw1 service.
+
+[Unit]
+Description=<This service runs a basic programming language (mypl) lexer on an example file and prints the tokens output to the terminal>
+
+[Service]
+User=mypl
+Group=mypl
+ExecStart=/usr/local/bin/mypl.py --lex hw1_example.mypl
+Type=simple
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

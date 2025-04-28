@@ -1,0 +1,6 @@
+echo "Running postrm for mypl-hw1..."
+
+userdel mypl
+systemctl daemon-reload
+# completely clear out files
+rm -f tmp

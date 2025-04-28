@@ -1,0 +1,3 @@
+# not really much to do here for preinstall
+
+echo "Running preinst for mypl-hw1..."

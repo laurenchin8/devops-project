@@ -1,0 +1,9 @@
+
+void main() {
+    int i = i + 1;
+    print("this is helping me test homework 1\n");
+    //this is a comment
+    double my_fav_number = 6.0;
+    28 >= 2
+    false == true
+}
